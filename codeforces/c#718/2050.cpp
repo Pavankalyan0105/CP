@@ -4,6 +4,32 @@ using namespace std;
 
 typedef long long ll;
 
+
+//Optimal #Uncode CP
+void solve1()
+{
+    ll num;
+    int count=0;
+    cin>>num;
+
+    if(num%2050 == 0){
+        num/=2050;
+        while(num)
+        {
+            count+=(num%10);
+            num/=10;
+        }
+        cout<<count<<endl;
+    }
+    else{
+        cout<<"-1\n";
+    }
+
+}
+
+
+
+//My solution
 int solve()
 {
     ll num , init;
@@ -32,6 +58,6 @@ int main()
     cin>>T;
     while(T--)
     {
-        cout<<solve()<<endl;
+        solve1();
     }
 }
