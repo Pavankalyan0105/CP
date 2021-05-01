@@ -19,8 +19,10 @@ int countSetBits(int n)
 
 int main()
 {
-    cout<<countSetBits(5)<<endl;
-    cout<<(5&1)<<endl;
+    // cout<<countSetBits(5)<<endl;
+    // cout<<(5&1)<<endl;
+    int res =4>>2;
+    cout<<(res);
 
     // 0
     // 1
