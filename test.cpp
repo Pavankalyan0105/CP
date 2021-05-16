@@ -1,18 +1,36 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
-string replaceDigits(string s) 
-{
-    for(int i=1;i<s.length();i+=2)
-    {
-        cout<<"-->"<<s[i-1]<<endl;
-        s[i] =  char(s[i-1] + (s[i] - 48));
-    }
-    cout<<s<<endl;
-    return s;
-}
 
-int main(){
-    // cout<<('a'+'b');
-    replaceDigits("a1c1e1");
+
+int main(){     
+    int n;
+    cin>>n;
+    vector<int> arr(n , 0);
+    for(int i=0; i<n; i++){
+        cin>>arr[i];
+    }
+
+
+    map<int,  int> mp;
+    stack<int> s;
+
+    for(int i=0; i<n; i++){
+        while(!s.empty() && arr[i] > arr[s.top()] ){
+            mp[s.top()] = i;
+            s.pop();
+        }
+        if(i<n) s.push(i);
+    }
+    while(!s.empty()){
+        mp[s.top()]--;
+        s.pop();
+    }
+
+
+    for(int i=0; i<n; i++){
+        if(arr[mp[i]])
+            cout<<arr[mp[i]]<<"  ";
+        else cout<<-1<<" ";
+    }
+
 }
